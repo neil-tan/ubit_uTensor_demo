@@ -1,4 +1,4 @@
-#include "models/deep_mlp.hpp"  //gernerated model file
+#include "models/mnist_for_mc.hpp"  //gernerated model file
 #include "tensor.hpp"  //useful tensor classes
 #include "mbed.h"
 #include <stdio.h>
@@ -13,7 +13,7 @@ int main(void) {
   //wrapping the input data in a tensor class
   Tensor* input_x = new WrappedRamTensor<float>({1, 784}, (float*) input_data);
 
-  get_deep_mlp_ctx(ctx, input_x);  // pass the tensor to the context
+  get_mnist_for_mc_ctx(ctx, input_x);  // pass the tensor to the context
   S_TENSOR pred_tensor = ctx.get("y_pred:0");  // getting a reference to the output tensor
   ctx.eval(); //trigger the inference
 
